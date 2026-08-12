@@ -3,8 +3,11 @@ import analyzer
 import os
 import requests
 
+# pyrefly: ignore [missing-import]
+from dotenv import load_dotenv
+load_dotenv()
 # Şifremiz ve adresimiz aynı, kusursuz çalışıyor
-api_sifresi = "AQ.Ab8RN6IOO0GY9z0AefrC0AgUUiX8_eV1_0UBOhFrisDloZwwQQ"
+api_sifresi = os.environ["GEMINI_API_KEY"]
 
 def bot_cevabini_al(prompt):
     """

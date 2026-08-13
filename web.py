@@ -6,6 +6,14 @@ import editor
 # Sayfa ayarları (Geniş ekran, sekme başlığı ve ikon)
 st.set_page_config(page_title="Makale Asistanı - Web", page_icon="🤖", layout="wide")
 
+# Sadece Fork ve GitHub ikonunu gizler, 3 nokta menüsü yerinde kalır
+gizle_kalabalik = """
+    <style>
+    .stAppDeployButton {display: none !important;}
+    </style>
+"""
+st.markdown(gizle_kalabalik, unsafe_allow_html=True)
+
 
 # Başlık ve Açıklama
 st.title("🤖 Yapay Zeka Makale Editörü")

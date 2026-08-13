@@ -6,6 +6,17 @@ import editor
 # Sayfa ayarları (Geniş ekran, sekme başlığı ve ikon)
 st.set_page_config(page_title="Makale Asistanı - Web", page_icon="🤖", layout="wide")
 
+# Üst menüyü, GitHub ikonunu ve 'Fork' butonunu gizleyen CSS
+gizle_github_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    .stAppHeader {display: none;}
+    </style>
+"""
+st.markdown(gizle_github_style, unsafe_allow_html=True)
+
 # Başlık ve Açıklama
 st.title("🤖 Yapay Zeka Makale Editörü")
 st.markdown("DOSYA A (Hakem Yorumları) ve DOSYA B (Ana Metin) okunarak **Gemini 3.5 Flash** modeli ile analiz edilecektir.")

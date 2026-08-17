@@ -6,14 +6,6 @@ import editor
 # Sayfa ayarları (Geniş ekran, sekme başlığı ve ikon)
 st.set_page_config(page_title="Makale Asistanı - Web", page_icon="🤖", layout="wide")
 
-# Sadece Fork ve GitHub ikonunu gizler, 3 nokta menüsü yerinde kalır
-gizle_kalabalik = """
-    <style>
-    .stAppDeployButton {display: none !important;}
-    </style>
-"""
-st.markdown(gizle_kalabalik, unsafe_allow_html=True)
-
 
 # Başlık ve Açıklama
 st.title("🤖 Yapay Zeka Makale Editörü")
@@ -53,6 +45,13 @@ with sag_kolon:
                     
                     # 4. Sonuçları ekrana yazdır
                     st.success("✅ İşlem Başarılı! Çıktılar aşağıya yazdırıldı ve klasöre yedeklendi.")
+                    st.download_button(
+                     label="📥 Raporu Bilgisayarıma İndir",
+                     data=cevap["dosya_c_raporu"],
+                     file_name="DOSYA_C_Rapor.txt",
+                     mime="text/plain"
+                )
+
                     
                     st.text_area("Yapay Zeka Raporu (DOSYA C):", value=cevap["dosya_c_raporu"], height=200)
                     st.text_area("Güncellenmiş Metin (Revize DOSYA B):", value=cevap["yeni_makale"], height=250)
